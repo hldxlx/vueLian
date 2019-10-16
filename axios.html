@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <button @click="getData()">axios</button>
+    <ul>
+        <li v-for="data in datalist">
+            <img :src="data.poster"/>
+            <h1>{{data.name}}</h1>
+        </li>
+    </ul>
+</div>
+<script src="lib/vue.js" type="text/javascript"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script type="text/javascript">
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            datalist:[]
+        },
+        methods:{
+            getData(){
+//                fetch("json/test.json").then(result=>result.json()).then(res=>{
+//                    console.log(res);
+//                    this.datalist =res.data.films
+//                })
+//                axios.get("json/test.json").then(res =>{
+//                    console.log(res.data);
+//                    this.datalist =res.data.data.films;
+//                })
+
+                axios({
+                    url:"https://m.maizuo.com/gateway?cityId=110100&pageNum=1&pageSize=10&type=1&k=1384809",
+                    headers:{
+                        'X-Client-Info': '{"a":"3000","ch":"1002","v":"5.0.4","e":"154277371928424093566579"}',
+                        'X-Host': 'mall.film-ticket.film.list'
+                    }
+                }).then(res=>{
+                    console.log(res.data);
+                    this.datalist= res.data.data.films
+                })
+
+            }
+        }
+    })
+</script>
+</body>
+</html>

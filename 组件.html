@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <navbar></navbar>
+    ============
+    <navbar></navbar>
+    ===============
+    <kis></kis>
+</div>
+<script src="lib/vue.js" type="text/javascript"></script>
+<script type="text/javascript">
+    //公共组件
+    Vue.component("comChild",{
+        template:`
+            <div>
+               comChild
+            </div>
+        `,
+    })
+    Vue.component("navbar",{
+        template:`
+            <div>
+               <button @click="handleBack()">返回</button>
+                <p style="background:red">{{title}}</p>
+                <comChild></comChild>
+                <navChild></navChild>
+            </div>
+        `,
+        data(){
+            return {
+                title:'题目'
+            }
+        },
+        components:{
+            navChild:{
+                template:`<div>只是navbar的child</div>`
+            }
+        },
+        methods:{
+            handleBack(){
+                console.log(111)
+            }
+        }
+    })
+
+    Vue.component("kis",{
+        template:`
+            <div>
+               kis
+            </div>
+        `})
+
+    var vm = new Vue({
+        el:"#app"
+    })
+</script>
+</body>
+</html>

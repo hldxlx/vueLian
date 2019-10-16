@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <keep-alive>
+        <components :is="who"></components>
+    </keep-alive>
+
+    <ul>
+        <li @click="who='home'">home</li>
+        <li @click="who='list'">list</li>
+        <li @click="who='car'">car</li>
+    </ul>
+</div>
+<script src="lib/vue.js" type="text/javascript"></script>
+<script type="text/javascript">
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            who:'home'
+        },
+        components:{
+            home:{
+                template:`
+                    <div>home<input type="text"/></div>
+                `
+            },
+            list:{
+                template:`
+                    <div>list</div>
+                `
+            },
+            car:{
+                template:`
+                    <div>car</div>
+                `
+            }
+        }
+    })
+</script>
+</body>
+</html>

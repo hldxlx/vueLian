@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model.lazy="name" />
+        {{name}}
+
+
+        <input type="number" v-model.number="age"/>
+        {{age}}
+
+        <input type="text" v-model.trim="text"/>
+        {{text}}
+
+    </div>
+    <script src="lib/vue.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var vm = new Vue({
+            el:"#app",
+            data:{
+                name:'kis',
+                age:15,
+                text:''
+            },
+            watch:{
+                name(){
+                    console.log("name改变了，-复杂运算")
+                }
+            }
+        })
+    </script>
+</body>
+</html>

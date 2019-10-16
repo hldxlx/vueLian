@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>watch方式</title>
+</head>
+<body>
+<div id="app">
+    <input type="text" v-model="price"/>
+    <input type="text" v-model="num"/>
+    总价{{sum}}
+</div>
+<script src="lib/vue.js" type="text/javascript"></script>
+<script type="text/javascript">
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            price:100,
+            num:1,
+            sum:0
+        },
+        watch:{
+            price(){
+                if(this.price * this.num < 1000){
+                    this.sum = this.price * this.num +20
+                }else{
+                    this.sum = this.price * this.num
+                }
+            },
+            num(){
+                if(this.price * this.num < 1000){
+                    this.sum = this.price * this.num +20
+                }else{
+                    this.sum = this.price * this.num
+                }
+            },
+        }
+
+    })
+</script>
+</body>
+</html>

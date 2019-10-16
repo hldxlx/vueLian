@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <button @click="hello">
+        click
+    </button>
+
+</div>
+<script src="lib/vue.js" type="text/javascript"></script>
+<script type="text/javascript">
+    var a = {
+        data: {
+            age:100
+        },
+        methods:{
+            hello(){
+                console.log("hello")
+            }
+        }
+    }
+
+
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            name:"kis"
+        },
+        mixins:[a]
+    })
+</script>
+</body>
+</html>

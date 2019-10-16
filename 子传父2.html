@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <navbar @myevent="handleClick()"></navbar>
+    <slide v-show="isShow"></slide>
+</div>
+<script src="lib/vue.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+    Vue.component("navbar",{
+        template:`
+            <div>
+               <button @click="handle()">click</button>
+            </div>
+        `,
+        methods:{
+            handle(){
+                this.$emit("myevent")
+            }
+        }
+    })
+
+    Vue.component("slide",{
+        template:`
+            <div>
+               <ul>
+                    <li>1</li>
+                    <li>2</li>
+                </ul>
+            </div>
+        `
+    })
+
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            isShow:false
+        },
+        methods:{
+            handleClick(){
+                this.isShow = !this.isShow;
+            }
+        }
+    })
+</script>
+</body>
+</html>

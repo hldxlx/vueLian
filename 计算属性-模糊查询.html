@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <input type="text" v-model="myTest"/>
+    <ul>
+        <li v-for="data in computedList">
+            {{data}}
+        </li>
+    </ul>
+</div>
+<script src="lib/vue.js" type="text/javascript"></script>
+<script type="text/javascript">
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            dataList:['aaa','bbb','ccc','ddd','abc','eee'],
+            myTest:""
+        },
+        computed:{
+            computedList(){
+                return this.dataList.filter(item => item.indexOf(this.myTest)>-1)
+            }
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+   {{changeWord}}
+
+</div>
+<script src="lib/vue.js" type="text/javascript"></script>
+<script type="text/javascript">
+    var vm = new Vue({
+        el:"#app",
+        data:{
+           name:"kis"
+        },
+        computed:{
+            changeWord(){
+                return this.name.substring(0,1).toUpperCase()+this.name.substring(1)
+            }
+        }
+    })
+</script>
+</body>
+</html>

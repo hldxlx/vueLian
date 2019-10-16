@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <navder>
+        <button @click="isShow =!isShow">按下</button>
+    </navder>
+    <cuber v-show="isShow"></cuber>
+
+    <hello>
+        <div slot="a">a</div>
+        <div slot="b">22</div>
+        <div slot="c">33</div>
+    </hello>
+</div>
+<script src="lib/vue.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+    Vue.component("navder",{
+        template:`
+            <div>
+                <slot></slot>
+            </div>
+        `
+    })
+    Vue.component("cuber",{
+        template:`
+            <div>
+                cuber
+            </div>
+        `
+    })
+
+    Vue.component("hello",{
+        template:`
+            <div>
+                <slot name="a"></slot>
+                <slot name="b"></slot>
+                <slot name="c"></slot>
+
+            </div>
+        `
+    })
+
+
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            isShow:false
+        }
+
+    })
+</script>
+</body>
+</html>

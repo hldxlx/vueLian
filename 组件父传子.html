@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <navbar myname="首页" :word="test" :myshow="true"></navbar>
+    ============
+    <navbar myname="列表" :word="test" :myshow="false"></navbar>
+
+</div>
+<script src="lib/vue.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+    Vue.component("navbar",{
+        template:`
+            <div>
+               <button @click="handleBack()">返回</button>
+                <p style="background:red">{{title}}---{{myname}}</p>
+                <p>{{word}}</p>
+                <button v-show="myshow">主页</button>
+            </div>
+        `,
+        data(){
+            return {
+                title:'题目'
+            }
+        },
+//        props:['myname','word','myshow'],
+        props:{
+            myname:String,
+            word:String,
+            myshow:Boolean
+        },
+        methods:{
+            handleBack(){
+                console.log(111)
+            }
+        }
+    })
+
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            test:"来自父组件的叮嘱"
+
+        }
+    })
+</script>
+</body>
+</html>
